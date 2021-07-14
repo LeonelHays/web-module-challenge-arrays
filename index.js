@@ -45,11 +45,12 @@ Use the copy function below to do the following:
   2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(array){
+  const newArray = [...array];
+  return newArray
 }    
 
-
+console.log('task 1', copy(originalFlavors));
 
 
 
@@ -64,10 +65,14 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
- /*your code here*/
+function is31Flavors(array){
+ if(array.length === 31){
+   return true
+ }else if(array.length !== 31){
+   return false
+ }
 }
-
+console.log('Task 2', is31Flavors(originalFlavors));
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
 
@@ -81,10 +86,11 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
- /*your code here*/
+function addFlavor(array, flavor){
+ array.unshift(flavor)
+ return array
 }
-
+console.log('task 3', addFlavor(originalFlavors, "Rainbow Sherbert"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
@@ -96,11 +102,12 @@ Use the removeLastFlavor function below to do the following:
 
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
-
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+//1 param which is an array
+function removeLastFlavor(array){
+ array.pop()
+return array
 }
-
+console.log('task 4', removeLastFlavor(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -113,11 +120,11 @@ Use the getFlavorByIndex function below to do the following:
 
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
-
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+// 2 param - 1 is array 2 is a number that is the index
+function getFlavorByIndex(array, index){
+  return array[index]
 }
-
+console.log('task 5', getFlavorByIndex(originalFlavors, 2));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
@@ -138,13 +145,13 @@ function removeFlavorByName(array, flavour){
   //looping
   for(let i = 0; i < array.length; i++){
    if(array[i] === flavour){
-array.splice(i, 1);
+      array.splice(i, 1);
     }
   }
   return array;
 }
 
-console.log('task 6', removeFlavorByName(originalFlavors,'Rockyroad'))
+console.log('task 6', removeFlavorByName(originalFlavors,'Rockyroad'));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -175,7 +182,7 @@ function filterByWord(array, string){
       filteredArray.push(array[i]);
     }
   }
-  return filteredArray
+  return filteredArray;
 }
 console.log('task 7', filterByWord(originalFlavors, 'Chocolate'));
 console.log('task 7', filterByWord(originalFlavors, 'Vanilla'));
